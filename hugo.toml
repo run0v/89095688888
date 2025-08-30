@@ -1,0 +1,19 @@
+baseURL = 'https://89095688888.ru/'
+languageCode = 'ru-RU'
+title = 'Юридические услуги'
+
+[menus]
+  [[menus.main]]
+    name = 'Консультация'
+    url = '/yuridicheskaya-konsultaciya/'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Услуги'
+    url = '/uslugi/'
+    weight = 30
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.146.0'

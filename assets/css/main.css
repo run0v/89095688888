@@ -1,0 +1,254 @@
+@font-face {
+  font-family: 'Cuprum';
+  src: url('../fonts/Cuprum-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cuprum';
+  src: url('../fonts/Cuprum-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cuprum';
+  src: url('../fonts/Cuprum-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/PlayfairDisplay-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root {
+    /* Base font size */
+    font-size: 100%; /* 16px by default */
+
+    /* Spacing Unit */
+    --space-unit: 0.5rem; /* 8px */
+
+    /* Spacing Scale */
+    --space-xs:  var(--space-unit);          /* 8px */
+    --space-s:   calc(var(--space-unit) * 2);  /* 16px */
+    --space-m:   calc(var(--space-unit) * 3);  /* 24px */
+    --space-l:   calc(var(--space-unit) * 4);  /* 32px */
+    --space-xl:  calc(var(--space-unit) * 6);  /* 48px */
+    --space-xxl: calc(var(--space-unit) * 8);  /* 64px */
+
+    /* Colors */
+    --sea-slate: #495867;
+    --evening-mist: #577399;
+    --morning-haze: #BDD5EA;
+    --cloud-white: #F7F7FF;
+    --scarlet-sunset: #FE5F55;
+    --desert-sun: #997b57;
+}
+
+/* css Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Cuprum', sans-serif;
+    line-height: 1.5;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--scarlet-sunset);
+}
+
+a.logo:hover {
+    text-decoration: none;
+}
+
+header a,
+footer a {
+    color: var(--cloud-white);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, ul, ol {
+    margin-bottom: var(--space-m);
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-s);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    color: var(--desert-sun);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/*  Header  */
+header {
+    background-color: var(--sea-slate);
+    color: var(--cloud-white);
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
+    position: relative; /* For z-index to work */
+    z-index: 1001; /* Above the menu overlay */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu */
+header nav ul {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0; /* Override default list margin */
+}
+
+/* Footer */
+footer {
+    background-color: var(--sea-slate);
+    color: var(--cloud-white);
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
+}
+
+
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--cloud-white);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: var(--space-xs);
+    z-index: 1000; /* Ensure it's on top */
+    color: var(--cloud-white);
+}
+
+.menu-toggle .line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    margin: calc(var(--space-unit) / 2) 0;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    transform-origin: center;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    /* Give header a background for the dropdown to sit on */
+    header {
+        background-color: var(--sea-slate);
+    }
+
+    /* Show the toggle button */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Style the navigation container for mobile */
+    header nav {
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        right: 0;
+        background-color: var(--sea-slate);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        
+        /* Animate with max-height */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* When the body has the .menu-open class, show the nav */
+    body.menu-open header nav {
+        max-height: 40rem; /* A large enough value to show all content */
+    }
+
+    /* On mobile, the main nav UL is part of the slide-out panel */
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space-s);
+        gap: var(--space-s);
+    }
+
+    /* Animate the hamburger icon to a close icon */
+    body.menu-open .menu-toggle .line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    body.menu-open .menu-toggle .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.menu-open .menu-toggle .line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}

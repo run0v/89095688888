@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $monthIndex := sub .Date.Month 1 }}
+  {{ $monthTranslated := index .Site.Data.months.ru $monthIndex }}
+  {{ $dateHuman := printf "%d %s %d" .Date.Day $monthTranslated .Date.Year }}
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+
+  {{ .Content }}
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{ end }}

@@ -1,0 +1,8 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ $mainPosts := where site.RegularPages ".Params.main" true }}
+  {{ range $mainPosts }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary }}
+  {{ end }}
+{{ end }}
