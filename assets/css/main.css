@@ -252,3 +252,24 @@ footer {
         transform: translateY(-6px) rotate(-45deg);
     }
 }
+
+/* Breadcrumbs */
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0;
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    display: inline-block;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: var(--evening-mist);
+}
+
+.breadcrumb-item.active {
+    color: var(--evening-mist);
+}

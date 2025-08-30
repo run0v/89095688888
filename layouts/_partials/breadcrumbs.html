@@ -1,0 +1,17 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {{- if not .IsHome }}
+      <li class="breadcrumb-item"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Home.LinkTitle }}</a></li>
+      {{- $ancestors := .Ancestors -}}
+      {{- if .IsSection -}}
+        {{ $ancestors = .Ancestors.Reverse }}
+      {{- end -}}
+      {{- range $ancestors }}
+        {{- if not .IsHome }}
+          <li class="breadcrumb-item"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      {{- end }}
+      <li class="breadcrumb-item active" aria-current="page">{{ .LinkTitle }}</li>
+    {{- end }}
+  </ol>
+</nav>

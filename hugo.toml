@@ -1,16 +1,21 @@
 baseURL = 'https://89095688888.ru/'
 languageCode = 'ru-RU'
 title = 'Юридические услуги'
+uglyURLs = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmptyBundles = true
 
 [menus]
   [[menus.main]]
     name = 'Консультация'
-    url = '/yuridicheskaya-konsultaciya/'
+    pageRef = 'yuridicheskaya-konsultaciya'
     weight = 20
-
+    
   [[menus.main]]
     name = 'Услуги'
-    url = '/uslugi/'
+    pageRef = 'uslugi'
     weight = 30
 
 [module]
