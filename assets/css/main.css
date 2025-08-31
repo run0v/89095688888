@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     text-wrap: balance;
     overflow-wrap: break-word;
-    color: var(--desert-sun);
+    color: var(--evening-mist);
 }
 
 /* Layout */
