@@ -247,8 +247,8 @@ footer nav ul li a:hover {
 
     /* Adjust container padding for mobile */
     .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: var(--space-s);
+        padding-right: var(--space-s);
     }
 
     /* Remove bottom margin/padding from main block in mobile */
