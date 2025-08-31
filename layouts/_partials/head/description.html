@@ -1,0 +1,7 @@
+{{ if .Description }}
+<meta name="description" content="{{ .Description }}">
+{{ else if .Site.Params.description }}
+<meta name="description" content="{{ .Site.Params.description }}">
+{{ else }}
+<meta name="description" content="{{ site.Title }}">
+{{ end }}
