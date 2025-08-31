@@ -1,6 +1,7 @@
 <footer>
   <div class="container">
     {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
+    <hr>
     <p>Сайт не использует Cookie, не собирает персональные данные, и не обрабатывает последние.</p>
     <p>Генерация <a href="/sitemap.xml">sitemap</a>: {{ now | time.In "Europe/Moscow" | time.Format "02.01.2006 в 15:04" }} - [ {{ len .Site.RegularPages }} ] <br>
     Copyright 2007 - {{ now.Year }}. © Все права защищены.</p>

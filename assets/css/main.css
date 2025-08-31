@@ -102,6 +102,12 @@ a:hover {
 a.logo:hover {
     text-decoration: none;
 }
+.logo {
+    font-size: var(--space-m);
+}
+.logo span {
+    color: var(--scarlet-sunset);
+}
 
 header a,
 footer a {
