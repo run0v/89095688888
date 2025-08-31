@@ -239,7 +239,7 @@ footer nav ul li a:hover {
     }
 
     /* Adjust heading font sizes for better mobile rhythm */
-    h1 { font-size: 1.6rem; }
+    h1 { font-size: 1.6rem; margin-top: 0;}
     h2 { font-size: 1.4rem; }
     h3 { font-size: 1.2rem; }
     h4 { font-size: 1.1rem; }
