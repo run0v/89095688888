@@ -3,5 +3,7 @@
     {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
     <p>Сайт не использует Cookie, не собирает персональные данные, и не обрабатывает последние.</p>
     <p>Copyright 2007 - {{ now.Year }}. © Все права защищены.</p>
+    <p>Последнее изменение контента: {{ .Site.Lastmod | time.In "Europe/Moscow" | time.Format "02.01.2006 в 15:04" }}</p>
+    <p>Последняя генерация: {{ now | time.In "Europe/Moscow" | time.Format "02.01.2006 в 15:04" }}</p>
   </div>
 </footer>
