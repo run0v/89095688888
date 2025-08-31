@@ -18,6 +18,16 @@ enableEmptyBundles = true
     pageRef = 'uslugi'
     weight = 30
 
+  [[menus.footer]]
+    name = 'Политика конфиденциальности'
+    url = '/privacy-policy.html'
+    weight = 10
+
+  [[menus.footer]]
+    name = 'Условия использования'
+    url = '/terms-of-service.html'
+    weight = 20
+
 [module]
   [module.hugoVersion]
     extended = false

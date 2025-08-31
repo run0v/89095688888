@@ -1,5 +1,6 @@
 <footer>
   <div class="container">
-    <p>Copyright {{ now.Year }}. All rights reserved.</p>
+    {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
+    <p>Copyright 2007 - {{ now.Year }}. © Все права защищены.</p>
   </div>
 </footer>
