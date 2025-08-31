@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ $mainPosts := where site.RegularPages ".Params.main" true }}
-  {{ range $mainPosts }}
+  {{ $mainSections := where site.Sections ".Params.showOnMain" true }}
+  {{ range $mainSections }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ .Summary }}
   {{ end }}

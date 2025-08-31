@@ -350,7 +350,8 @@ footer nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     padding: 0 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
     list-style: none;
 }
 
