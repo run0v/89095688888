@@ -1,0 +1,24 @@
+{{ $section := . }}
+<div class="section-preview">
+  <h2 class="section-title">
+    <a href="{{ $section.RelPermalink }}">{{ $section.LinkTitle }}</a>
+  </h2>
+  
+  {{ with $section.Description }}
+    <p class="section-description">{{ . }}</p>
+  {{ end }}
+  
+  {{ with $section.Summary }}
+    <p class="section-summary">{{ . }}</p>
+  {{ end }}
+  
+  {{ if $section.Pages }}
+    <ul class="section-pages">
+      {{ range first 5 $section.Pages.ByWeight }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</div>

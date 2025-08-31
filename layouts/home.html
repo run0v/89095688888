@@ -1,8 +1,8 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ $mainSections := where site.Sections ".Params.showOnMain" true }}
-  {{ range $mainSections }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+  <div class="sections-container">
+    {{ range where site.Sections ".Params.showOnMain" true }}
+      {{ partial "section-home.html" . }}
+    {{ end }}
+  </div>
 {{ end }}
