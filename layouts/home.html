@@ -1,12 +1,14 @@
 {{ define "main" }}
-  <main><div class="container home_page">  
+  <main>
+    <div class="container home_page">  
 
-    {{ .Content }}
-    <div class="sections-container">
-      {{ range where site.Sections ".Params.showOnMain" true }}
-        {{ partial "section-home.html" . }}
-      {{ end }}
-    </div>
+      {{ .Content }}
+      <div class="sections-container">
+        {{ range where site.Sections ".Params.showOnMain" true }}
+          {{ partial "section-home.html" . }}
+        {{ end }}
+      </div>
    
-  </div></main>
+    </div>
+  </main>
 {{ end }}
