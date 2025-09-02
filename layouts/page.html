@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main>
-  <div class="container">  
+  <article class="container">  
     {{ partial "breadcrumbs.html" . }}
     <h1>{{ .Title }}</h1>
 
@@ -11,7 +11,13 @@
     <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
     {{ .Content }}
+    
+  </article>
+  <article>
+
+  
+    
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-  </div>
+  </article>
 </main>
 {{ end }}
