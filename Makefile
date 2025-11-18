@@ -76,7 +76,7 @@ newpost:
 
 # Команда для запуска локального сервера разработки с отключенным быстрым рендерингом
 hugo_serve:
-	hugo server --disableFastRender
+	hugo server --cleanDestinationDir --ignoreCache --disableFastRender --port 1313
 
 # Catch and ignore additional arguments
 %:
