@@ -75,6 +75,8 @@ newpost:
 	hugo new content/"$$TRANSLITERATED.md" --kind post
 
 # Команда для запуска локального сервера разработки с отключенным быстрым рендерингом
+#	 
+#
 hugo_serve:
 	hugo server --cleanDestinationDir --ignoreCache --disableFastRender --port 1313
 
