@@ -6,16 +6,16 @@
 
 ## Порядок
 
-| # | Файл | Что делаем | Блокирует |
-|---|------|------------|-----------|
-| 0 | [00-decisions.md](00-decisions.md) | Закрыть 7 открытых вопросов из черновика | всё остальное |
-| 1 | [01-sections-scaffold.md](01-sections-scaffold.md) | Создать 8 разделов (`_index.md`) | меню, хаб, наполнение |
-| 2 | [02-menu-and-hub.md](02-menu-and-hub.md) | Меню + страница «Направления практики» | навигация |
-| 3 | [03-standalone-pages.md](03-standalone-pages.md) | 7 самостоятельных страниц услуг | меню (пункты) |
-| 4 | [04-footer-aggregation.md](04-footer-aggregation.md) | Блок со всеми разделами в футере | — |
-| 5 | [05-content-articles.md](05-content-articles.md) | Наполнение разделов статьями | разделы должны существовать |
-| 6 | [06-legal-pages.md](06-legal-pages.md) | Политика конфиденциальности, Условия использования | футер |
-| 7 | [07-trust-pages.md](07-trust-pages.md) | «О юристе», «Контакты» (если решено создавать) | решения из фазы 0 |
+| # | Файл | Что делаем | Статус |
+|---|------|------------|--------|
+| 0 | [00-decisions.md](00-decisions.md) | Закрыть 7 открытых вопросов из черновика | ✅ |
+| 1 | [01-sections-scaffold.md](01-sections-scaffold.md) | Создать 8 разделов (`_index.md`) | ✅ |
+| 2 | [02-menu-and-hub.md](02-menu-and-hub.md) | Меню + страница «Направления практики» | ✅ |
+| 3 | [03-standalone-pages.md](03-standalone-pages.md) | 7 самостоятельных страниц услуг | ✅ |
+| 4 | [04-footer-aggregation.md](04-footer-aggregation.md) | Блок со всеми разделами в футере | ✅ |
+| 5 | [05-content-articles.md](05-content-articles.md) | Наполнение разделов статьями | 🟡 флагманы по 1 в каждом разделе |
+| 6 | [06-legal-pages.md](06-legal-pages.md) | Политика конфиденциальности, Условия использования | ✅ |
+| 7 | [07-trust-pages.md](07-trust-pages.md) | «О юристе», «Контакты» | ✅ |
 
 ## Принцип ведения
 

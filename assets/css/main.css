@@ -214,6 +214,30 @@ footer nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Footer: all sections block */
+footer nav.footer-sections {
+    margin-top: var(--space-s);
+}
+
+footer nav.footer-sections h2 {
+    font-size: 1rem;
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--cloud-white);
+}
+
+footer nav.footer-sections ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-xs) 1.5rem;
+    margin: 0 0 var(--space-s) 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer nav.footer-sections ul li {
+    list-style: none;
+}
+
 
 /* Menu Toggle Button */
 .menu-toggle {

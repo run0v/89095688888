@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main>
+  <article class="container">
+    {{ partial "breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+
+    {{ .Content }}
+
+    <div class="sections-container">
+      {{ range site.Sections.ByWeight }}
+        {{ partial "section-home.html" . }}
+      {{ end }}
+    </div>
+  </article>
+</main>
+{{ end }}

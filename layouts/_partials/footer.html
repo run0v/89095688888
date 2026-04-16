@@ -1,5 +1,13 @@
 <footer>
   <div class="container">
+    <nav class="footer-sections" aria-label="Все направления практики">
+      <h2>Направления практики</h2>
+      <ul>
+        {{ range site.Sections.ByWeight }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
     {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
     <hr>
     <p>Сайт не использует Cookie, не собирает персональные данные, и не обрабатывает последние.</p>
