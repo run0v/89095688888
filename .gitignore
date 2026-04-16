@@ -1,6 +1,3 @@
 # Hugo build output
 public/
-GEMINI.md
-.env
-.gemini/
 .github
