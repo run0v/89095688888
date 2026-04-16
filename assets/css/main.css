@@ -178,7 +178,9 @@ header .container {
 /* Menu */
 header nav ul {
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: flex-end;
     margin-bottom: 0; /* Override default list margin */
 }
 
