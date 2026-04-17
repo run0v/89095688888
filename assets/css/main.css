@@ -238,17 +238,18 @@ h5, h6 { font-size: var(--fs-400); margin-top: var(--space-m); margin-bottom: va
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: auto;
   left: var(--space-s);
+  transform: translateY(-150%);
   background: var(--accent);
   color: var(--text-on-accent);
   padding: var(--space-xs) var(--space-s);
   border-radius: var(--radius);
   z-index: calc(var(--z-header) + 1);
   text-decoration: none;
-  transition: top var(--dur) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
-.skip-link:focus-visible { top: var(--space-s); }
+.skip-link:focus-visible { top: var(--space-s); transform: translateY(0); }
 
 .stack-s > * + * { margin-top: var(--space-s); }
 .stack-m > * + * { margin-top: var(--space-m); }
@@ -375,9 +376,8 @@ body > header a:hover { color: var(--accent-light); }
   transition: background-color var(--dur) var(--ease);
 }
 .phone:hover { background-color: rgba(255,255,255,0.08); }
-.phone::before {
-  content: "☎";
-  font-size: 1.2em;
+.phone__icon {
+  flex-shrink: 0;
   color: var(--accent);
 }
 
@@ -435,17 +435,24 @@ body > header nav a.ancestor::after {
 /* Menu toggle (burger) */
 .menu-toggle {
   display: none;
+  width: 44px; height: 44px;
+  padding: 0;
   border: 1px solid var(--text-on-dark);
   border-radius: var(--radius-sm);
-  padding: var(--space-2xs);
+  background: transparent;
   color: var(--text-on-dark);
-  width: 40px; height: 40px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 .menu-toggle .line {
   display: block;
   width: 22px; height: 2px;
+  margin: 0;
   background-color: currentColor;
-  margin: 5px auto;
+  border-radius: 1px;
   transition: transform var(--dur) var(--ease), opacity var(--dur-fast) var(--ease);
 }
 
@@ -1353,7 +1360,7 @@ main article a:hover { color: var(--brand); }
 /* Extra small (<640): phone as icon only */
 @media (max-width: 639.98px) {
   .phone span { display: none; }
-  .phone::before { font-size: 1.5em; }
+  .phone__icon { width: 24px; height: 24px; }
   .phone { padding: var(--space-2xs); }
   .logo { max-width: 55vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
@@ -1383,7 +1390,7 @@ main article a:hover { color: var(--brand); }
    ========================================================================== */
 
 @media (max-width: 959.98px) {
-  .menu-toggle { display: block; }
+  .menu-toggle { display: flex; }
   .btn--cta { display: none; } /* CTA prepared in nav panel instead */
   .logo { font-size: var(--fs-400); }
 
