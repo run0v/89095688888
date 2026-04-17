@@ -321,6 +321,11 @@ h5, h6 { font-size: var(--fs-400); margin-top: var(--space-m); margin-bottom: va
 
 .btn--block { width: 100%; }
 
+.btn--lg {
+  padding: var(--space-s) var(--space-xl);
+  font-size: var(--fs-400);
+}
+
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -584,89 +589,165 @@ main article a:hover { color: var(--brand); }
 .breadcrumb-item.active { color: var(--text-secondary); }
 
 /* ==========================================================================
-   Hero (home)
+   Hero (home) — single column, centered, stats strip at bottom
    ========================================================================== */
 
 .hero {
-  background: linear-gradient(180deg, var(--surface-1) 0%, var(--surface-0) 100%);
-  padding-block: var(--space-xl) var(--space-2xl);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(184, 134, 11, 0.08), transparent 60%),
+    linear-gradient(180deg, var(--surface-1) 0%, var(--surface-0) 100%);
+  padding-block: var(--space-2xl) 0;
   border-bottom: 1px solid var(--border);
 }
 
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-  align-items: center;
+.hero__content {
+  max-width: 860px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-2xl);
 }
 
-.hero__content { max-width: 640px; }
+.hero__eyebrow {
+  display: inline-block;
+  margin: 0 0 var(--space-m);
+  padding: var(--space-3xs) var(--space-s);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-size: var(--fs-200);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
 .hero__title {
-  font-size: var(--fs-800);
-  margin-top: 0;
-  margin-bottom: var(--space-m);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.1;
+  margin: 0 0 var(--space-m);
   color: var(--brand);
+  letter-spacing: -0.01em;
 }
 
 .hero__subtitle {
   font-size: var(--fs-500);
   color: var(--text-secondary);
-  margin-bottom: var(--space-l);
+  margin: 0 auto var(--space-xl);
+  max-width: 640px;
   line-height: var(--lh-snug);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-s);
-  margin-bottom: var(--space-l);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-l);
 }
 
-.hero__badges {
-  display: flex;
+.hero__phone {
+  display: inline-flex;
   flex-direction: column;
-  gap: var(--space-2xs);
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.hero__phone:hover { color: var(--accent-dark); }
+.hero__phone-label {
   font-size: var(--fs-200);
   color: var(--text-secondary);
 }
-.hero__badges li {
-  position: relative;
-  padding-left: var(--space-m);
-}
-.hero__badges li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
+.hero__phone-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.hero__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero__avatar {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
+/* Stats strip: dark band under hero, no spacing between hero bg and strip */
+.hero-stats {
   background: var(--brand);
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 6rem;
-  font-weight: 700;
+  color: var(--text-on-dark);
+  border-block: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stats__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-m);
+  padding-block: var(--space-l);
+  text-align: center;
+}
+.hero-stats__item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-lg);
+  flex-direction: column;
+  gap: var(--space-3xs);
+  position: relative;
+}
+.hero-stats__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.hero-stats__label {
+  font-size: var(--fs-200);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 720px) {
+  .hero-stats__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-l);
+  }
+  .hero-stats__item + .hero-stats__item::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--space-l) * -0.5);
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.15);
+  }
 }
 
 @media (min-width: 960px) {
-  .hero { padding-block: var(--space-2xl) var(--space-3xl); }
-  .hero__inner { grid-template-columns: 2fr 1fr; gap: var(--space-xl); }
-  .hero__title { font-size: var(--fs-900); }
-  .hero__avatar { width: 240px; height: 240px; font-size: 7rem; }
+  .hero { padding-block: var(--space-3xl) 0; }
+  .hero__content { padding-block: var(--space-2xl) var(--space-3xl); }
+}
+
+/* ==========================================================================
+   Section head (shared: services / directions)
+   ========================================================================== */
+
+.section-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-2xl);
+}
+.section-head__eyebrow {
+  font-size: var(--fs-200);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-dark);
+  margin: 0 0 var(--space-s);
+}
+.section-head__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0 0 var(--space-m);
+  color: var(--brand);
+}
+.section-head__lead {
+  font-size: var(--fs-400);
+  color: var(--text-secondary);
+  line-height: var(--lh-snug);
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -674,12 +755,7 @@ main article a:hover { color: var(--brand); }
    ========================================================================== */
 
 .services {
-  padding-block: var(--space-2xl);
-}
-.services__title {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: var(--space-xl);
+  padding-block: var(--space-3xl);
 }
 .services__grid {
   display: grid;
@@ -692,44 +768,72 @@ main article a:hover { color: var(--brand); }
   display: flex;
   flex-direction: column;
   gap: var(--space-s);
-  padding: var(--space-l);
+  padding: var(--space-xl) var(--space-l);
   background: var(--surface-0);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   color: var(--text-primary);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
+.service-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
+}
 .service-tile:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   color: var(--text-primary);
 }
+.service-tile:hover::before { transform: scaleX(1); }
+
 .service-tile__icon {
-  width: 48px; height: 48px;
+  width: 56px; height: 56px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--surface-1);
+  color: var(--accent-dark);
+  background: rgba(184, 134, 11, 0.08);
   border-radius: var(--radius);
-  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
 }
-.service-tile__name { font-size: var(--fs-500); margin: 0; color: var(--brand); }
-.service-tile__desc { margin: 0; color: var(--text-secondary); font-size: var(--fs-300); }
+.service-tile__name {
+  font-size: var(--fs-500);
+  margin: 0;
+  color: var(--brand);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.service-tile__desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--fs-300);
+  line-height: var(--lh-normal);
+  flex-grow: 1;
+}
+.service-tile__more {
+  color: var(--accent-dark);
+  font-size: var(--fs-200);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-top: var(--space-s);
+}
+.service-tile:hover .service-tile__more { color: var(--accent); }
 
 /* ==========================================================================
    Directions (8 practice areas)
    ========================================================================== */
 
 .directions {
-  padding-block: var(--space-2xl);
+  padding-block: var(--space-3xl);
   background: var(--surface-1);
-}
-.directions__title { text-align: center; margin-top: 0; margin-bottom: var(--space-s); }
-.directions__lead {
-  text-align: center;
-  color: var(--text-secondary);
-  max-width: 640px;
-  margin: 0 auto var(--space-xl);
 }
 .directions__grid {
   display: grid;
@@ -750,30 +854,52 @@ main article a:hover { color: var(--brand); }
   border-radius: var(--radius-lg);
   color: var(--text-primary);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 .direction-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   color: var(--text-primary);
+}
+.direction-card__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-700);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.4;
+  margin-bottom: var(--space-s);
+  letter-spacing: -0.02em;
+  transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.direction-card:hover .direction-card__num {
+  opacity: 1;
+  color: var(--accent-dark);
 }
 .direction-card__title {
   font-size: var(--fs-500);
   margin: 0 0 var(--space-2xs);
   color: var(--brand);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-snug);
 }
 .direction-card__desc {
   color: var(--text-secondary);
   font-size: var(--fs-300);
   margin: 0;
   flex-grow: 1;
+  line-height: var(--lh-normal);
 }
 .direction-card__more {
   color: var(--accent-dark);
   font-size: var(--fs-200);
   font-weight: 700;
-  margin-top: var(--space-s);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-m);
 }
 .direction-card:hover .direction-card__more { color: var(--accent); }
 

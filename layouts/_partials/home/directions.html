@@ -1,10 +1,15 @@
+{{- $sections := where site.Sections ".Params.showOnMain" true -}}
 <section class="directions">
   <div class="container">
-    <h2 class="directions__title">Направления практики</h2>
-    <p class="directions__lead">Работаю по восьми основным направлениям. Если вашего вопроса в списке нет — позвоните или <a href="#zayavka">оставьте заявку</a>, оценю перспективы.</p>
+    <header class="section-head">
+      <p class="section-head__eyebrow">Направления практики</p>
+      <h2 class="section-head__title">Что я веду</h2>
+      <p class="section-head__lead">Восемь основных направлений. Если вашего вопроса в списке нет — позвоните или <a href="#zayavka">оставьте заявку</a>, оценю перспективы.</p>
+    </header>
+
     <div class="directions__grid">
-      {{ range where site.Sections ".Params.showOnMain" true }}
-        {{ partial "home/direction-card.html" . }}
+      {{ range $i, $s := $sections }}
+        {{ partial "home/direction-card.html" (dict "section" $s "index" (add $i 1)) }}
       {{ end }}
     </div>
   </div>

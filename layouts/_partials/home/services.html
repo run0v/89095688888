@@ -1,25 +1,52 @@
 {{- /* Three service types from main menu (Консультации, Представительство в суде, Подготовка документов) */ -}}
 <section class="services">
   <div class="container">
-    <h2 class="services__title">Что я делаю</h2>
+    <header class="section-head">
+      <p class="section-head__eyebrow">Услуги</p>
+      <h2 class="section-head__title">Как я помогаю</h2>
+      <p class="section-head__lead">Три основных формата работы. Можно начать с бесплатной консультации — разберём ситуацию и решим, что делать дальше.</p>
+    </header>
+
     <div class="services__grid">
 
       <a href="/konsultaciya.html" class="service-tile">
-        <div class="service-tile__icon" aria-hidden="true">💬</div>
+        <div class="service-tile__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/>
+          </svg>
+        </div>
         <h3 class="service-tile__name">Консультации</h3>
         <p class="service-tile__desc">Оценка перспектив дела, разъяснение прав и порядка действий. Очно, по телефону или онлайн.</p>
+        <span class="service-tile__more" aria-hidden="true">Подробнее →</span>
       </a>
 
       <a href="/predstavitelstvo-v-sude.html" class="service-tile">
-        <div class="service-tile__icon" aria-hidden="true">⚖</div>
+        <div class="service-tile__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18"/>
+            <path d="M5 7h14"/>
+            <path d="M5 7L2 14a5 3 0 0 0 6 0z"/>
+            <path d="M19 7l-3 7a5 3 0 0 0 6 0z"/>
+            <path d="M7 21h10"/>
+          </svg>
+        </div>
         <h3 class="service-tile__name">Представительство в суде</h3>
         <p class="service-tile__desc">Подготовка позиции, участие в заседаниях, обжалование. Суды общей юрисдикции и арбитраж.</p>
+        <span class="service-tile__more" aria-hidden="true">Подробнее →</span>
       </a>
 
       <a href="/podgotovka-dokumentov.html" class="service-tile">
-        <div class="service-tile__icon" aria-hidden="true">📄</div>
+        <div class="service-tile__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/>
+            <path d="M8 13h8"/><path d="M8 17h6"/>
+          </svg>
+        </div>
         <h3 class="service-tile__name">Подготовка документов</h3>
         <p class="service-tile__desc">Исковые заявления, претензии, договоры, жалобы, ходатайства. Письменные правовые заключения.</p>
+        <span class="service-tile__more" aria-hidden="true">Подробнее →</span>
       </a>
 
     </div>
