@@ -1,0 +1,15 @@
+{{- $stats := .Params.hero_stats -}}
+{{ with $stats }}
+  <section class="hero-stats" aria-label="Ключевые метрики практики">
+    <div class="container">
+      <ul class="hero-stats__list">
+        {{ range . }}
+          <li class="hero-stats__item">
+            <span class="hero-stats__value">{{ .value }}</span>
+            <span class="hero-stats__label">{{ .label }}</span>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{ end }}

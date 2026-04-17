@@ -1,37 +1,29 @@
 {{- $phone := site.Params.phone | default "+79095688888" -}}
-{{- $phoneDisplay := site.Params.phone_display | default "8 (909) 568-88-88" -}}
 {{- $title := .Params.hero_title | default (printf "Юрист · %s" site.Title) -}}
 {{- $subtitle := .Params.hero_subtitle -}}
 {{- $primary := .Params.hero_cta_primary | default "Записаться на консультацию" -}}
-{{- $stats := .Params.hero_stats -}}
+{{- $secondary := .Params.hero_cta_secondary | default "Позвонить" -}}
+{{- $badges := .Params.hero_badges -}}
 <section class="hero">
-  <div class="container">
+  <div class="container hero__inner">
     <div class="hero__content">
       <p class="hero__eyebrow">Частнопрактикующий юрист</p>
       <h1 class="hero__title">{{ $title }}</h1>
       {{ with $subtitle }}<p class="hero__subtitle">{{ . }}</p>{{ end }}
       <div class="hero__actions">
         <a href="#zayavka" class="btn btn--primary btn--lg">{{ $primary }}</a>
-        <a href="tel:{{ $phone }}" class="hero__phone">
-          <span class="hero__phone-label">Или позвоните</span>
-          <span class="hero__phone-num">{{ $phoneDisplay }}</span>
-        </a>
+        <a href="tel:{{ $phone }}" class="btn btn--ghost">☎ {{ $secondary }}</a>
       </div>
+      {{ with $badges }}
+        <ul class="hero__badges">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <!-- TODO: заменить на реальное фото юриста (см. task_design/00-decisions.md, реш. 2) -->
+      <div class="hero__avatar">Ю</div>
     </div>
   </div>
-
-  {{ with $stats }}
-    <div class="hero-stats">
-      <div class="container">
-        <ul class="hero-stats__list">
-          {{ range . }}
-            <li class="hero-stats__item">
-              <span class="hero-stats__value">{{ .value }}</span>
-              <span class="hero-stats__label">{{ .label }}</span>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-    </div>
-  {{ end }}
 </section>
