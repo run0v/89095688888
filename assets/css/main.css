@@ -391,8 +391,8 @@ body > header nav {
 }
 body > header nav ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2xs) var(--space-s);
+  flex-wrap: nowrap;
+  gap: var(--space-m);
   align-items: center;
   justify-content: center;
 }
@@ -401,6 +401,7 @@ body > header nav a {
   display: inline-block;
   padding: var(--space-2xs) 0;
   position: relative;
+  white-space: nowrap;
 }
 body > header nav a:hover,
 body > header nav a.active,

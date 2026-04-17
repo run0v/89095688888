@@ -27,29 +27,19 @@ enableRobotsTXT = true
     weight = 10
 
   [[menus.main]]
-    name = 'Представительство в суде'
-    pageRef = 'predstavitelstvo-v-sude'
-    weight = 20
-
-  [[menus.main]]
-    name = 'Подготовка документов'
-    pageRef = 'podgotovka-dokumentov'
-    weight = 30
-
-  [[menus.main]]
     name = 'Направления практики'
     pageRef = 'napravleniya'
-    weight = 40
+    weight = 20
 
   [[menus.main]]
     name = 'О юристе'
     pageRef = 'o-yuriste'
-    weight = 50
+    weight = 30
 
   [[menus.main]]
     name = 'Контакты'
     pageRef = 'kontakty'
-    weight = 60
+    weight = 40
 
   [[menus.footer]]
     name = 'Политика конфиденциальности'
