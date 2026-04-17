@@ -1,15 +1,39 @@
 {{ define "main" }}
-  <main>
-    <article class="container">  
-    {{ partial "breadcrumbs.html" . }}
-    <h1>{{ .Title }}</h1>
+<main id="main">
+  <article class="section-page">
+    <div class="container">
+      {{ partial "breadcrumbs.html" . }}
 
-    {{ .Content }}
-    
-    {{ range .Pages }}
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    {{ end }}
-      </article>
-  </main>
+      <header class="page__header">
+        <h1 class="page__title">{{ .Title }}</h1>
+        {{ with .Description }}<p class="page__lead">{{ . }}</p>{{ end }}
+      </header>
+
+      {{ with .Content }}
+        <div class="prose prose--intro">
+          {{ . }}
+        </div>
+      {{ end }}
+
+      {{ if .Pages }}
+        <div class="section-pages-grid">
+          {{ range .Pages.ByWeight }}
+            <a href="{{ .RelPermalink }}" class="section-page-card">
+              <h2 class="section-page-card__title">{{ .LinkTitle }}</h2>
+              {{ with .Description }}
+                <p class="section-page-card__desc">{{ . }}</p>
+              {{ else }}
+                <p class="section-page-card__desc">{{ .Summary | plainify | truncate 160 }}</p>
+              {{ end }}
+              <span class="section-page-card__more" aria-hidden="true">Подробнее →</span>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </article>
+
+  {{ partial "cta-inline.html" . }}
+
+</main>
 {{ end }}

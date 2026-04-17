@@ -1,0 +1,11 @@
+<section class="directions">
+  <div class="container">
+    <h2 class="directions__title">Направления практики</h2>
+    <p class="directions__lead">Работаю по восьми основным направлениям. Если вашего вопроса в списке нет — позвоните или <a href="#zayavka">оставьте заявку</a>, оценю перспективы.</p>
+    <div class="directions__grid">
+      {{ range where site.Sections ".Params.showOnMain" true }}
+        {{ partial "home/direction-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>

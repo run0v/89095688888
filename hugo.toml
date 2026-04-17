@@ -10,6 +10,16 @@ timeZone = 'Europe/Moscow'
 disableHugoGeneratorInject = true
 enableRobotsTXT = true
 
+[params]
+  description = "Частнопрактикующий юрист. Консультации, представительство в суде, подготовка документов. Помощь гражданам в Петрозаводске, Санкт-Петербурге и Москве."
+  phone = "+79095688888"
+  phone_display = "8 (909) 568-88-88"
+  email = "mail@89095688888.ru"
+  whatsapp = "https://wa.me/79095688888"
+  telegram = "https://t.me/+79095688888"
+  hours_short = "Пн–Пт 9–20, Сб 10–16"
+  og_image = "/og-default.jpg"
+
 [menus]
   [[menus.main]]
     name = 'Консультации'

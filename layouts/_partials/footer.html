@@ -1,17 +1,65 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $phoneDisplay := site.Params.phone_display | default "8 (909) 568-88-88" -}}
+{{- $email := site.Params.email -}}
+{{- $wa := site.Params.whatsapp -}}
+{{- $tg := site.Params.telegram -}}
+{{- $hours := site.Params.hours_short -}}
 <footer>
   <div class="container">
-    <nav class="footer-sections" aria-label="Все направления практики">
-      <h2>Направления практики</h2>
-      <ul>
-        {{ range site.Sections.ByWeight }}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    <div class="footer-grid">
+
+      <div class="footer-col footer-col--contacts">
+        <h2>Контакты</h2>
+        <p class="footer-tagline">Частнопрактикующий юрист.<br>Помощь гражданам.</p>
+        <ul class="footer-contacts">
+          <li>
+            <a href="tel:{{ $phone }}" class="footer-link-phone">
+              <span aria-hidden="true">☎</span>
+              <span>{{ $phoneDisplay }}</span>
+            </a>
+          </li>
+          {{ with $email }}
+          <li>
+            <a href="mailto:{{ . }}">
+              <span aria-hidden="true">✉</span>
+              <span>{{ . }}</span>
+            </a>
+          </li>
+          {{ end }}
+          {{ with $hours }}<li class="footer-hours"><span aria-hidden="true">🕒</span> {{ . }}</li>{{ end }}
+        </ul>
+        <div class="footer-messengers">
+          {{ with $wa }}<a href="{{ . }}" rel="noopener" aria-label="WhatsApp">WhatsApp</a>{{ end }}
+          {{ with $tg }}<a href="{{ . }}" rel="noopener" aria-label="Telegram">Telegram</a>{{ end }}
+        </div>
+        <p class="footer-geo">География: Петрозаводск, Санкт-Петербург, Москва</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Направления практики">
+        <h2>Направления практики</h2>
+        <ul>
+          {{ range site.Sections.ByWeight }}
+            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="О сайте">
+        <h2>О сайте</h2>
+        {{ with index site.Menus "footer" }}
+          <ul>
+            {{ range . }}<li><a href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}
+          </ul>
         {{ end }}
-      </ul>
-    </nav>
-    {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
+      </nav>
+
+    </div>
+
     <hr>
-    <p>Сайт не использует Cookie, не собирает персональные данные, и не обрабатывает последние.</p>
-    <p>Генерация <a href="/sitemap.xml">sitemap</a>: {{ now | time.In "Europe/Moscow" | time.Format "02.01.2006 в 15:04" }} - [ {{ len .Site.RegularPages }} ] <br>
-    Copyright 2007 - {{ now.Year }}. © Все права защищены.</p>
+
+    <p class="footer-copy">
+      © 2007–{{ now.Year }} · Все права защищены ·
+      <a href="/sitemap.xml">Карта сайта</a>
+    </p>
   </div>
 </footer>

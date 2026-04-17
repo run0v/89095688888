@@ -1,15 +1,23 @@
 {{ define "main" }}
-  <main class="container">
+  <main id="main">
 
-    <article class="home_page">
-      {{ .Content }}
-    </article>
+    {{ partial "schema/legal-service.html" . }}
 
-    <div class="sections-container">
-      {{ range where site.Sections ".Params.showOnMain" true }}
-        {{ partial "section-home.html" . }}
-      {{ end }}
-    </div>
-    
+    {{ partial "home/hero.html" . }}
+
+    {{ partial "home/services.html" . }}
+
+    {{ partial "home/directions.html" . }}
+
+    <section class="home-intro">
+      <div class="container container--narrow">
+        <article class="home-intro__body">
+          {{ .Content }}
+        </article>
+      </div>
+    </section>
+
+    {{ partial "form-lead.html" . }}
+
   </main>
 {{ end }}

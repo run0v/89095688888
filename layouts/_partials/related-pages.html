@@ -1,0 +1,25 @@
+{{- $current := . -}}
+{{- $section := .CurrentSection -}}
+{{- $related := slice -}}
+{{- with $section -}}
+  {{- range first 4 ($section.Pages.ByWeight) -}}
+    {{- if ne .RelPermalink $current.RelPermalink -}}
+      {{- $related = $related | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $related -}}
+<aside class="related" aria-labelledby="related-title">
+  <div class="container">
+    <h2 id="related-title" class="related__title">Связанные страницы</h2>
+    <div class="related__grid">
+      {{ range first 3 $related }}
+        <a href="{{ .RelPermalink }}" class="related__card">
+          <h3 class="related__card-title">{{ .LinkTitle }}</h3>
+          {{ with .Description }}<p class="related__card-desc">{{ . }}</p>{{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</aside>
+{{- end -}}

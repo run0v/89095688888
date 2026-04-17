@@ -1,0 +1,28 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $title := .Params.hero_title | default (printf "Юрист · %s" site.Title) -}}
+{{- $subtitle := .Params.hero_subtitle -}}
+{{- $primary := .Params.hero_cta_primary | default "Записаться на консультацию" -}}
+{{- $secondary := .Params.hero_cta_secondary | default "Позвонить" -}}
+{{- $badges := .Params.hero_badges -}}
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <h1 class="hero__title">{{ $title }}</h1>
+      {{ with $subtitle }}<p class="hero__subtitle">{{ . }}</p>{{ end }}
+      <div class="hero__actions">
+        <a href="#zayavka" class="btn btn--primary">{{ $primary }}</a>
+        <a href="tel:{{ $phone }}" class="btn btn--ghost">☎ {{ $secondary }}</a>
+      </div>
+      {{ with $badges }}
+        <ul class="hero__badges">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <!-- TODO: заменить на реальное фото юриста (см. task_design/00-decisions.md, реш. 2) -->
+      <div class="hero__avatar">Ю</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $phoneDisplay := site.Params.phone_display -}}
+<section class="cta-inline">
+  <div class="container container--narrow cta-inline__inner">
+    <div class="cta-inline__text">
+      <h2 class="cta-inline__title">Нужна юридическая помощь?</h2>
+      <p class="cta-inline__subtitle">Первая консультация — бесплатно. Оцените перспективы вашего дела за 15 минут.</p>
+    </div>
+    <div class="cta-inline__actions">
+      <a href="/#zayavka" class="btn btn--primary">Оставить заявку</a>
+      <a href="tel:{{ $phone }}" class="btn btn--ghost-light">☎ {{ $phoneDisplay }}</a>
+    </div>
+  </div>
+</section>

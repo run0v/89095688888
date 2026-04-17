@@ -5,8 +5,10 @@
 </head>
 <body>
   {{ partial "header.html" . }}
-  
+
   {{ block "main" . }}{{ end }}
+
+  {{ partial "floating-contacts.html" . }}
 
   {{ partial "footer.html" . }}
 </body>

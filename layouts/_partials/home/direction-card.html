@@ -1,0 +1,6 @@
+{{- $section := . -}}
+<a href="{{ $section.RelPermalink }}" class="direction-card">
+  <h3 class="direction-card__title">{{ $section.LinkTitle }}</h3>
+  {{ with $section.Description }}<p class="direction-card__desc">{{ . }}</p>{{ end }}
+  <span class="direction-card__more" aria-hidden="true">Подробнее →</span>
+</a>

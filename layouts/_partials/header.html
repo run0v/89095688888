@@ -1,11 +1,27 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $phoneDisplay := site.Params.phone_display | default "8 (909) 568-88-88" -}}
+{{- $hours := site.Params.hours_short | default "" -}}
+<a href="#main" class="skip-link">Перейти к содержанию</a>
 <header>
   <div class="container">
-    <a href="/" class="logo">8<span> (</span>909<span>) </span>568<span>-</span>88<span>-</span>88</a>
+    <a href="/" class="logo" aria-label="{{ site.Title }} — на главную">
+      {{ site.Title }}
+    </a>
+
     {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-    <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </button>
+
+    <div class="header-actions">
+      {{ with $hours }}<span class="hours">{{ . }}</span>{{ end }}
+      <a href="tel:{{ $phone }}" class="phone" aria-label="Позвонить по телефону {{ $phoneDisplay }}">
+        <span>{{ $phoneDisplay }}</span>
+      </a>
+      <a href="#zayavka" class="btn btn--primary btn--cta">Записаться</a>
+
+      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </div>
   </div>
 </header>

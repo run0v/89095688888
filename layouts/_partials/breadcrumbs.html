@@ -1,17 +1,41 @@
+{{- if not .IsHome -}}
+{{- $ancestors := .Ancestors -}}
+{{- if .IsSection -}}{{- $ancestors = .Ancestors.Reverse -}}{{- end -}}
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    {{- if not .IsHome }}
-      <li class="breadcrumb-item"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Home.LinkTitle }}</a></li>
-      {{- $ancestors := .Ancestors -}}
-      {{- if .IsSection -}}
-        {{ $ancestors = .Ancestors.Reverse }}
-      {{- end -}}
-      {{- range $ancestors }}
-        {{- if not .IsHome }}
-          <li class="breadcrumb-item"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
+    <li class="breadcrumb-item"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Home.LinkTitle }}</a></li>
+    {{- range $ancestors }}
+      {{- if not .IsHome }}
+        <li class="breadcrumb-item"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
-      <li class="breadcrumb-item active" aria-current="page">{{ .LinkTitle }}</li>
     {{- end }}
+    <li class="breadcrumb-item active" aria-current="page">{{ .LinkTitle }}</li>
   </ol>
 </nav>
+
+{{- /* Schema.org BreadcrumbList */ -}}
+{{- $items := slice (dict "name" .Site.Home.LinkTitle "item" .Site.Home.Permalink) -}}
+{{- range $ancestors -}}
+  {{- if not .IsHome -}}
+    {{- $items = $items | append (dict "name" .LinkTitle "item" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items = $items | append (dict "name" .LinkTitle "item" .Permalink) -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{- range $i, $it := $items }}
+    {{- if $i }},{{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $i 1 }},
+      "name": {{ $it.name | jsonify }},
+      "item": {{ $it.item | jsonify }}
+    }
+    {{- end }}
+  ]
+}
+</script>
+{{- end -}}

@@ -1,0 +1,18 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $wa := site.Params.whatsapp -}}
+{{- $tg := site.Params.telegram -}}
+<div class="floating-contacts" aria-label="Быстрые контакты">
+  {{ with $wa }}
+    <a href="{{ . }}" class="floating-contacts__btn floating-contacts__btn--wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+      <span aria-hidden="true">W</span>
+    </a>
+  {{ end }}
+  {{ with $tg }}
+    <a href="{{ . }}" class="floating-contacts__btn floating-contacts__btn--tg" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+      <span aria-hidden="true">T</span>
+    </a>
+  {{ end }}
+  <a href="tel:{{ $phone }}" class="floating-contacts__btn floating-contacts__btn--tel" aria-label="Позвонить">
+    <span aria-hidden="true">☎</span>
+  </a>
+</div>

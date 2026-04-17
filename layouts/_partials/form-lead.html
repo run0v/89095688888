@@ -1,0 +1,78 @@
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+<section class="lead" id="zayavka">
+  <div class="container container--narrow">
+    <div class="lead__header">
+      <h2 class="lead__title">Запись на консультацию</h2>
+      <p class="lead__subtitle">
+        Оставьте заявку — свяжусь в течение рабочего дня. Или позвоните: <a href="tel:{{ $phone }}">{{ site.Params.phone_display }}</a>.
+      </p>
+    </div>
+
+    <form class="lead-form" action="/api/lead" method="post" novalidate data-form="lead">
+      <!-- honeypot -->
+      <div class="lead-form__honey" aria-hidden="true">
+        <label for="lead-website">Сайт</label>
+        <input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="lead-form__grid">
+        <div class="field">
+          <label for="lead-name">Имя <span class="field__req" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="lead-name"
+            name="name"
+            required
+            minlength="2"
+            maxlength="100"
+            autocomplete="name"
+            aria-required="true"
+          >
+        </div>
+
+        <div class="field">
+          <label for="lead-phone">Телефон <span class="field__req" aria-hidden="true">*</span></label>
+          <input
+            type="tel"
+            id="lead-phone"
+            name="phone"
+            required
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="+7 (___) ___-__-__"
+            aria-required="true"
+          >
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="lead-message">Кратко опишите ситуацию <span class="field__hint">(необязательно)</span></label>
+        <textarea
+          id="lead-message"
+          name="message"
+          rows="4"
+          maxlength="2000"
+        ></textarea>
+      </div>
+
+      <div class="field field--consent">
+        <label>
+          <input type="checkbox" name="consent" required aria-required="true">
+          <span>
+            Даю согласие на обработку персональных данных в соответствии с
+            <a href="/privacy-policy.html">Политикой конфиденциальности</a>
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--block">Отправить заявку</button>
+
+      <p class="lead-form__note">
+        Нажимая кнопку, вы подтверждаете согласие с условиями обработки персональных данных.
+      </p>
+
+      <div class="lead-form__feedback" role="status" aria-live="polite"></div>
+    </form>
+
+  </div>
+</section>

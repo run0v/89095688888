@@ -1,0 +1,44 @@
+{{- /* Schema.org LegalService — на главной сайта */ -}}
+{{- $phone := site.Params.phone | default "+79095688888" -}}
+{{- $email := site.Params.email -}}
+{{- $wa := site.Params.whatsapp -}}
+{{- $tg := site.Params.telegram -}}
+{{- $sameAs := slice -}}
+{{- with $wa }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+{{- with $tg }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+{{- $image := printf "%s%s" (strings.TrimRight "/" site.BaseURL) (site.Params.og_image | default "/og-default.jpg") -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": {{ site.Title | jsonify }},
+  "description": {{ site.Params.description | jsonify }},
+  "url": {{ site.BaseURL | jsonify }},
+  "telephone": {{ $phone | jsonify }},
+  {{ with $email }}"email": {{ . | jsonify }},{{ end }}
+  "image": {{ $image | jsonify }},
+  "priceRange": "от 2000 ₽",
+  "areaServed": [
+    { "@type": "City", "name": "Петрозаводск" },
+    { "@type": "City", "name": "Санкт-Петербург" },
+    { "@type": "City", "name": "Москва" },
+    { "@type": "AdministrativeArea", "name": "Республика Карелия" }
+  ],
+  "availableLanguage": "Russian",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "16:00"
+    }
+  ]
+  {{ with $sameAs }},"sameAs": {{ . | jsonify }}{{ end }}
+}
+</script>
