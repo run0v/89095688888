@@ -140,6 +140,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + var(--space-s));
+  /* Paint the rubber-band overscroll area to match header/footer so
+     iOS Safari doesn't reveal a white sliver + tint its chrome light. */
+  background-color: var(--surface-2);
 }
 
 body {
