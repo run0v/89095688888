@@ -466,7 +466,9 @@ body > header nav a.ancestor::after {
 footer {
   background-color: var(--surface-2);
   color: var(--text-on-dark);
-  padding-block: var(--space-xl) var(--space-m);
+  /* Pad the bottom past the iOS safe-area so footer navy stretches under
+     Safari's translucent bottom toolbar and its frosted glass tints dark. */
+  padding-block: var(--space-xl) calc(var(--space-m) + env(safe-area-inset-bottom, 0px));
   margin-top: var(--space-2xl);
 }
 footer a { color: var(--text-on-dark); text-decoration: none; }
