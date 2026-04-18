@@ -147,7 +147,10 @@ html {
 
 body {
   min-height: 100svh;
-  background-color: var(--surface-0);
+  /* Dark body so header, footer and the iOS Safari chrome that samples
+     the page bg (top/bottom toolbars, rubber-band overscroll) all tint
+     navy. Content lives inside <main>, which paints its own white bg. */
+  background-color: var(--surface-2);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: var(--fs-300);
@@ -466,9 +469,7 @@ body > header nav a.ancestor::after {
 footer {
   background-color: var(--surface-2);
   color: var(--text-on-dark);
-  /* Pad the bottom past the iOS safe-area so footer navy stretches under
-     Safari's translucent bottom toolbar and its frosted glass tints dark. */
-  padding-block: var(--space-xl) calc(var(--space-m) + env(safe-area-inset-bottom, 0px));
+  padding-block: var(--space-xl) var(--space-m);
   margin-top: var(--space-2xl);
 }
 footer a { color: var(--text-on-dark); text-decoration: none; }
@@ -568,7 +569,10 @@ footer p {
    Main
    ========================================================================== */
 
-main { display: block; }
+main {
+  display: block;
+  background-color: var(--surface-0);
+}
 
 main .container { padding-block: var(--space-l); }
 
