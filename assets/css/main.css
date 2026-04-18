@@ -623,7 +623,8 @@ main article a:hover { color: var(--brand); }
   align-items: center;
 }
 
-.hero__content { max-width: 640px; }
+.hero__text-top,
+.hero__text-bottom { max-width: 640px; }
 
 .hero__eyebrow {
   display: inline-block;
@@ -723,7 +724,18 @@ main article a:hover { color: var(--brand); }
 
 @media (min-width: 960px) {
   .hero { padding-block: var(--space-2xl) var(--space-3xl); }
-  .hero__inner { grid-template-columns: 1.6fr 1fr; gap: var(--space-2xl); }
+  .hero__inner {
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-areas:
+      "top    visual"
+      "bottom visual";
+    column-gap: var(--space-2xl);
+    row-gap: var(--space-l);
+    align-items: start;
+  }
+  .hero__text-top { grid-area: top; align-self: end; }
+  .hero__text-bottom { grid-area: bottom; align-self: start; }
+  .hero__visual { grid-area: visual; align-self: center; }
   .hero__avatar { width: 280px; height: 280px; font-size: 8rem; }
 }
 

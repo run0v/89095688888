@@ -6,10 +6,18 @@
 {{- $badges := .Params.hero_badges -}}
 <section class="hero">
   <div class="container hero__inner">
-    <div class="hero__content">
+    <div class="hero__text-top">
       <p class="hero__eyebrow">Частнопрактикующий юрист</p>
       <h1 class="hero__title">{{ $title }}</h1>
       {{ with $subtitle }}<p class="hero__subtitle">{{ . }}</p>{{ end }}
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <!-- TODO: заменить на реальное фото юриста (см. task_design/00-decisions.md, реш. 2) -->
+      <div class="hero__avatar">Ю</div>
+    </div>
+
+    <div class="hero__text-bottom">
       <div class="hero__actions">
         <a href="#zayavka" class="btn btn--primary btn--lg">{{ $primary }}</a>
         <a href="tel:{{ $phone }}" class="btn btn--ghost">
@@ -24,11 +32,6 @@
           {{ range . }}<li>{{ . }}</li>{{ end }}
         </ul>
       {{ end }}
-    </div>
-
-    <div class="hero__visual" aria-hidden="true">
-      <!-- TODO: заменить на реальное фото юриста (см. task_design/00-decisions.md, реш. 2) -->
-      <div class="hero__avatar">Ю</div>
     </div>
   </div>
 </section>
