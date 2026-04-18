@@ -612,14 +612,14 @@ main article a:hover { color: var(--brand); }
   background:
     radial-gradient(ellipse at 75% 0%, rgba(184, 134, 11, 0.08), transparent 55%),
     linear-gradient(180deg, var(--surface-1) 0%, var(--surface-0) 100%);
-  padding-block: var(--space-xl) var(--space-2xl);
+  padding-block: var(--space-m) var(--space-l);
   border-bottom: 1px solid var(--border);
 }
 
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-xl);
+  gap: var(--space-m);
   align-items: center;
 }
 
@@ -628,7 +628,7 @@ main article a:hover { color: var(--brand); }
 
 .hero__eyebrow {
   display: inline-block;
-  margin: 0 0 var(--space-m);
+  margin: 0 0 var(--space-xs);
   padding: var(--space-3xs) var(--space-s);
   border: 1px solid var(--accent);
   border-radius: 999px;
@@ -640,17 +640,17 @@ main article a:hover { color: var(--brand); }
 }
 
 .hero__title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-size: clamp(1.75rem, 6vw, 3.25rem);
   line-height: 1.1;
-  margin: 0 0 var(--space-m);
+  margin: 0 0 var(--space-xs);
   color: var(--brand);
   letter-spacing: -0.01em;
 }
 
 .hero__subtitle {
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   color: var(--text-secondary);
-  margin: 0 0 var(--space-l);
+  margin: 0;
   line-height: var(--lh-snug);
   max-width: 56ch;
 }
@@ -659,7 +659,7 @@ main article a:hover { color: var(--brand); }
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-s);
 }
 
 .hero__badges {
@@ -698,14 +698,14 @@ main article a:hover { color: var(--brand); }
   align-items: center;
 }
 .hero__avatar {
-  width: 220px;
-  height: 220px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background:
     radial-gradient(circle at 30% 30%, var(--brand-light), var(--brand) 70%);
   color: var(--accent);
   font-family: var(--font-display);
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -736,6 +736,10 @@ main article a:hover { color: var(--brand); }
   .hero__text-top { grid-area: top; align-self: end; }
   .hero__text-bottom { grid-area: bottom; align-self: start; }
   .hero__visual { grid-area: visual; align-self: center; }
+  .hero__eyebrow { margin-bottom: var(--space-m); }
+  .hero__title { margin-bottom: var(--space-m); font-size: clamp(2.25rem, 4vw, 3.25rem); }
+  .hero__subtitle { font-size: var(--fs-500); }
+  .hero__actions { margin-bottom: var(--space-l); }
   .hero__avatar { width: 280px; height: 280px; font-size: 8rem; }
 }
 
